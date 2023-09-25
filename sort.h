@@ -28,5 +28,6 @@ void quick_sort_simple(int *array, size_t low, size_t high);
 size_t lomuto_partition(int *array, size_t low, size_t high, bool *swapped);
 void shell_sort(int *array, size_t size);
 void counting_sort(int *array, size_t size);
+void heap_sort(int *array, size_t size);
 
 #endif
