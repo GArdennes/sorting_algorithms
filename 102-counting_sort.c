@@ -85,6 +85,8 @@ void counting_sort(int *array, size_t size)
 	count_elements(array, size, count);
 	update_count_array(count, max);
 
+	print_array(count, max + 1);
+
 	temp = malloc(sizeof(int) * size);
 	if (temp == NULL)
 		return;
@@ -99,6 +101,5 @@ void counting_sort(int *array, size_t size)
 		array[i] = temp[i];
 	free(count);
 	free(temp);
-	print_array(array, size);
 }
 
