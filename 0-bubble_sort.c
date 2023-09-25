@@ -29,5 +29,7 @@ void bubble_sort(int *array, size_t size)
 		}
 		if (check_swp)
 			print_array(array, size);
+		if (!check_swp)
+			break;
 	}
 }
