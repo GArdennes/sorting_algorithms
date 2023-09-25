@@ -24,11 +24,9 @@ void bubble_sort(int *array, size_t size)
 				temp = array[j];
 				array[j] = array[j + 1];
 				array[j + 1] = temp;
-				check_swp = true;
+				print_array(array, size);
 			}
 		}
-		if (check_swp)
-			print_array(array, size);
 		if (!check_swp)
 			break;
 	}
