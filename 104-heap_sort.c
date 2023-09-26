@@ -19,7 +19,7 @@ void swap(int *a, int *b)
  * @size: size of the array
  * @i: number
  */
-void siftDown(int *array, size_t size, int i)
+void siftDown(int *array, size_t size, int i, size_t total)
 {
 	int largest = i;
 	size_t left = 2 * i + 1;
@@ -34,8 +34,8 @@ void siftDown(int *array, size_t size, int i)
 	if (largest != i)
 	{
 		swap(&array[i], &array[largest]);
-		/*print_array(array, size);*/
-		siftDown(array, size, largest);
+		print_array(array, total);
+		siftDown(array, size, largest, total);
 	}
 }
 
@@ -49,7 +49,7 @@ void build_heap(int *array, size_t size)
 	size_t i;
 
 	for (i = size / 2 - 1; i != (size_t)-1; i--)
-		siftDown(array, size, i);
+		siftDown(array, size, i, size);
 }
 
 /**
@@ -68,6 +68,6 @@ void heap_sort(int *array, size_t size)
 	{
 		swap(&array[0], &array[i]);
 		print_array(array, size);
-		siftDown(array, i, 0);
+		siftDown(array, i, 0, size);
 	}
 }
