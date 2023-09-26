@@ -1,6 +1,25 @@
 #include "sort.h"
 
 /**
+ * find_max - function to find the maximum element in the array
+ * @array: integer array to check
+ * @size: size of array
+ * Return: On succes int
+ */
+int find_max(int *array, size_t size)
+{
+        int max = 0;
+        size_t i;
+
+        for (i = 0; i < size; i++)
+        {
+                if (array[i] > max)
+                        max = array[i];
+        }
+        return (max);
+}
+
+/**
  * radix_sort - function to sort according to radix sort algorithm
  * @array: integer array
  * @size: size of array
