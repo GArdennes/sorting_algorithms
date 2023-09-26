@@ -1,13 +1,27 @@
 #include "sort.h"
 
 /**
+ * swap - function to swap nodes
+ * @a: number
+ * @b: number
+ */
+void swap(int *a, int *b)
+{
+	int temp = *a;
+
+	*a = *b;
+	*b = temp;
+}
+
+/**
  * hoare_partition - the partition
  * @array: the integer array
  * @low: low number
  * @high: high number
+ * @size: size of the array
  * Return: On success int
  */
-int hoare_partition(int *array, int low, int high)
+int hoare_partition(int *array, int low, int high, size_t size)
 {
 	int pivot, i, j;
 
@@ -37,16 +51,17 @@ int hoare_partition(int *array, int low, int high)
  * @array: the integer array
  * @low: low number
  * @high: high number
+ * @size: array size
  */
-void quick_sort_hoare_recursive(int *array, int low, int high)
+void quick_sort_hoare_recursive(int *array, int low, int high, size_t size)
 {
 	int partition_index;
 
 	if (low < high)
 	{
-		partition_index = hoare_partition(array, low, high);
-		quick_sort_hoare_recursive(array, low, partition_index);
-		quick_sort_hoare_recursive(array, partition_index + 1, high);
+		partition_index = hoare_partition(array, low, high, size);
+		quick_sort_hoare_recursive(array, low, partition_index, size);
+		quick_sort_hoare_recursive(array, partition_index + 1, high, size);
 	}
 }
 
@@ -60,5 +75,5 @@ void quick_sort_hoare(int *array, size_t size)
 	if (!array || size < 2)
 		return;
 
-	quick_sort_hoare_recursive(array, 0, size - 1);
+	quick_sort_hoare_recursive(array, 0, size - 1, size);
 }
