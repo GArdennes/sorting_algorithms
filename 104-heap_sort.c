@@ -18,6 +18,7 @@ void swap(int *a, int *b)
  * @array: integer array
  * @size: size of the array
  * @i: number
+ * @total: size of the array in total
  */
 void siftDown(int *array, size_t size, int i, size_t total)
 {
