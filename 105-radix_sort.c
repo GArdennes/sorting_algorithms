@@ -7,7 +7,7 @@
  */
 void radix_sort(int *array, size_t size)
 {
-	int max, *temp, count[10];
+	int max, *temp, count[10] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 	size_t i, j, exp = 1;
 
 	if (!array || size < 2)
@@ -15,12 +15,11 @@ void radix_sort(int *array, size_t size)
 
 	max = find_max(array, size);
 	temp = malloc(size * sizeof(int));
-	count[10] = {0};
 
 	while (max / exp > 0)
 	{
-		for (i = 0; i < 10; i++)
-			count[i] = 0;
+		for (i = 0; i < size; i++)
+			count[(array[i] / exp) % 10] += 1;
 		for (i = 1; i < 10; i++)
 			count[i] += count[i - 1];
 		for (i = size - 1; i != (size_t)-1; i--)
